@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
-import { vacantes } from "../data/vacantes";
+import { vacancies } from "../data/vacantes";
 
 export default function Vacante() {
     const { id } = useParams<{ id: string }>();
 
     // Buscar la vacante por ID
-    const vacante = vacantes.find((vacante) => vacante.id === parseInt(id || '', 10));
+    const vacante = vacancies.find((vacante) => vacante.id === parseInt(id || '', 10));
 
     if (!vacante) {
         return (

@@ -1,29 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { admin } from "../data/usuarios";
 
-export default function Login({ setIsLoggedIn }: { setIsLoggedIn: (status: boolean) => void }) {
+const Login = ({ setIsLoggedIn }: { setIsLoggedIn: (status: boolean) => void }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const validUsers = [
-        { email: "admin@admin.com", password: "admin12345" },
-    ];
+    // Verificar persistencia de la sesión en localStorage
+    useEffect(() => {
+        const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
+        if (storedIsLoggedIn === "true") {
+            navigate("/admin"); // Si el usuario ya está logueado, redirige a admin
+        }
+    }, [navigate]);
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
 
-        const user = validUsers.find(
-        (user) => user.email === email && user.password === password
+        const user = admin.find(
+            (user) => user.email === email && user.password === password
         );
 
         if (user) {
-        setIsLoggedIn(true); // Actualiza el estado global
-        navigate("/admin"); // Redirige a la página de administración
-        setError("");
+            setIsLoggedIn(true); // Actualiza el estado global
+            localStorage.setItem("isLoggedIn", "true"); // Guarda el estado en localStorage
+            navigate("/admin"); // Redirige a la página de administración
+            setError("");
         } else {
-        setError("Correo electrónico o contraseña incorrectos.");
+            setError("Correo electrónico o contraseña incorrectos.");
         }
     };
 
@@ -56,7 +62,7 @@ export default function Login({ setIsLoggedIn }: { setIsLoggedIn: (status: boole
                         className="w-full p-3 rounded bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
-                    {error && <p className="text-red-500 text-center">{error}</p>}
+                {error && <p className="text-red-500 text-center">{error}</p>}
                 <button
                     type="submit"
                     className="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-600 transition duration-300"
@@ -68,3 +74,5 @@ export default function Login({ setIsLoggedIn }: { setIsLoggedIn: (status: boole
         </div>
     );
 };
+
+export default Login;

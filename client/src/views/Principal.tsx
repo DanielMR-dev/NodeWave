@@ -1,6 +1,6 @@
-import { vacantes } from "../data/vacantes";
+import { vacancies } from "../data/vacantes";
 
-const topVacantes = vacantes.slice(0, 3);
+const topVacantes = vacancies.slice(0, 3);
 
 export default function Main() {
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Principal from "./views/Principal";
@@ -8,38 +8,46 @@ import Login from "./views/Login";
 import Admin from "./views/Admin";
 
 const AppRouter = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // Estado de autenticación guardado en localStorage
+    const [isLoggedIn, setIsLoggedIn] = useState(() => {
+        const stored = localStorage.getItem("isLoggedIn");
+        return stored === "true"; // Devuelve true si el valor guardado es "true"
+    });
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          index: true,
-          element: <Principal />,
-        },
-        {
-          path: "vacantes",
-          element: <Vacantes />,
-        },
-        {
-          path: "vacante/:id",
-          element: <Vacante />,
-        },
-        {
-          path: "login",
-          element: <Login setIsLoggedIn={setIsLoggedIn} />,
-        },
-        {
-          path: "admin",
-          element: isLoggedIn ? <Admin /> : <Navigate to="/login" />,
-        },
-      ],
-    },
-  ]);
+    useEffect(() => {
+        localStorage.setItem("isLoggedIn", String(isLoggedIn)); // Guardamos en localStorage
+    }, [isLoggedIn]); // Actualiza el valor de isLoggedIn en localStorage
 
-  return <RouterProvider router={router} />;
+    const router = createBrowserRouter([
+        {
+        path: "/",
+        element: <Layout />,
+        children: [
+            {
+            index: true,
+            element: <Principal />,
+            },
+            {
+            path: "vacantes",
+            element: <Vacantes />,
+            },
+            {
+            path: "vacante/:id",
+            element: <Vacante />,
+            },
+            {
+            path: "login",
+            element: <Login setIsLoggedIn={setIsLoggedIn} />,
+            },
+            {
+            path: "admin",
+            element: isLoggedIn ? <Admin setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/login" />,
+            },
+        ],
+        },
+    ]);
+
+    return <RouterProvider router={router} />;
 };
 
 export default AppRouter;
