@@ -1,3 +1,6 @@
+import { vacantes } from "../data/vacantes";
+
+const topVacantes = vacantes.slice(0, 3);
 
 export default function Main() {
     return (
@@ -17,16 +20,22 @@ export default function Main() {
             </section>
 
             {/* Featured Vacancies */}
-            <section className="container mx-auto py-10" id="vacantes">
-                <h3 className="text-2xl font-bold text-center mb-8">Vacantes más buscadas</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-slate-900 shadow p-6 rounded hover:bg-slate-800">
-                        <h4 className="text-lg font-bold">Desarrollador Web</h4>
-                        <p className="text-gray-400">Ubicación: Remoto</p>
-                        <p className="text-gray-400">Salario: $4,000,000 COP</p>
-                        <button className="mt-4 text-blue-400 hover:underline">Ver más</button>
+            <section className="container mx-auto py-10 text-center" id="vacantes">
+                <h2 className="text-4xl font-bold mb-4">Vacantes más buscadas</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {topVacantes.map((vacancy) => (
+                    <div
+                        key={vacancy.id}
+                        className="bg-slate-900 p-6 rounded shadow hover:bg-slate-800 transition duration-300"
+                    >
+                        <h2 className="text-xl font-bold text-blue-400">{vacancy.title}</h2>
+                        <p className="text-gray-400 mt-2">Ubicación: {vacancy.location}</p>
+                        <p className="text-gray-400">Salario: {vacancy.salary}</p>
+                        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Ver Detalles
+                        </button>
                     </div>
-                    {/* Repite para más vacantes */}
+                    ))}
                 </div>
             </section>
         </>

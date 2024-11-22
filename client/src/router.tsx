@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Principal from "./views/Principal";
-import NuevoEmpleo from "./views/NuevoEmpleo";
+import Vacantes from "./views/Vacantes";
+import Vacante from "./views/Vacante";
 
 export const router = createBrowserRouter([
     {
@@ -13,8 +14,12 @@ export const router = createBrowserRouter([
                 element: <Principal/>
             },
             {
-                path: 'empleos/nuevo',
-                element: <NuevoEmpleo/>
+                path: 'vacantes',
+                element: <Vacantes/>
+            },
+            {
+                path: 'vacante',
+                element: <Vacante/>
             }
         ]
     }

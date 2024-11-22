@@ -6,19 +6,16 @@ export default function Layout() {
             <div className="bg-slate-950 text-white">
             {/* Header */}
             <header className="bg-slate-950 shadow">
-                <div className="container mx-auto max-w-6xl flex justify-between items-center py-8">
+                <div className="mx-auto max-w-6xl flex justify-between items-center py-8">
                     <h1 className="text-3xl font-bold text-blue-600">NodeWave</h1>
                     <nav className="space-x-4">
-                        <a href="#home" className="text-2xl text-white hover:text-blue-600">Inicio</a>
-                        <a href="#vacantes" className="text-2xl text-white hover:text-blue-600">Vacantes</a>
+                        <a href="/" className="text-2xl text-white hover:text-blue-600">Inicio</a>
+                        <a href="vacantes" className="text-2xl text-white hover:text-blue-600">Vacantes</a>
                         <a href="#login" className="text-2xl text-white hover:text-blue-600">Iniciar Sesión</a>
                     </nav>
                 </div>
-            </header>
-
-
-            
-            <main className="container mx-auto">
+            </header>     
+            <main className="mx-auto">
                 <Outlet/>
             </main>
             {/* Footer */}
