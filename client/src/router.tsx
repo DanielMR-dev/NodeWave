@@ -6,6 +6,7 @@ import Vacantes from "./views/Vacantes";
 import Vacante from "./views/Vacante";
 import Login from "./views/Login";
 import Admin from "./views/Admin";
+import NuevaVacante from "./views/NuevaVacante";
 
 const AppRouter = () => {
     // Estado de autenticación guardado en localStorage
@@ -20,30 +21,35 @@ const AppRouter = () => {
 
     const router = createBrowserRouter([
         {
-        path: "/",
-        element: <Layout />,
-        children: [
-            {
-            index: true,
-            element: <Principal />,
-            },
-            {
-            path: "vacantes",
-            element: <Vacantes />,
-            },
-            {
-            path: "vacante/:id",
-            element: <Vacante />,
-            },
-            {
-            path: "login",
-            element: <Login setIsLoggedIn={setIsLoggedIn} />,
-            },
-            {
-            path: "admin",
-            element: isLoggedIn ? <Admin setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/login" />,
-            },
-        ],
+            path: "/",
+            element: <Layout />,
+            children: [
+                {
+                    index: true,
+                    element: <Principal />,
+                },
+                {
+                    path: "vacantes",
+                    element: <Vacantes />,
+                },
+                {
+                    path: "vacante/:id",
+                    element: <Vacante />,
+                },
+                {
+                    path: "login",
+                    element: <Login setIsLoggedIn={setIsLoggedIn} />,
+                },
+                {
+                    path: "admin",
+                    element: isLoggedIn ? <Admin setIsLoggedIn={setIsLoggedIn} /> : <Navigate to="/login" />,
+                },
+                {
+                    path: "nueva-vacante",
+                    element: <NuevaVacante />,
+                
+                }
+            ],
         },
     ]);
 
