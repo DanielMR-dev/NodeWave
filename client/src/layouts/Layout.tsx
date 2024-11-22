@@ -1,27 +1,22 @@
 import { useState, useEffect } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const Layout = () => {
-    // Navegación para redirigir a otras rutas
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Hook para manejar redirecciones
+    const location = useLocation(); // Hook para detectar cambios en la ruta
 
     // Estado de autenticación guardado en localStorage
-    const [isLoggedIn, setIsLoggedIn] = useState(() => {
-        const stored = localStorage.getItem("isLoggedIn");
-        if(stored === 'true') {
-            return true;
-        } else {
-            return false;
-        };
-    });
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     
     // Leer el estado de isLoggedIn desde localStorage al montar el componente
     useEffect(() => {
         const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
         if (storedIsLoggedIn === "true") {
             setIsLoggedIn(true); // Si el usuario está logueado, actualiza el estado
+        } else {
+            setIsLoggedIn(false); // Si no, asegurarse de que el estado está en falso
         };
-    }, []); // Este useEffect se ejecutará solo una vez cuando se monte el componente
+    }, [location]); // Este useEffect se ejecutará solo una vez cuando se monte el componente
 
     // Actualizar localStorage cuando el estado isLoggedIn cambia
     useEffect(() => {
@@ -38,8 +33,8 @@ const Layout = () => {
     return (
         <div className="min-h-screen bg-slate-950 text-white">
             {/* Header */}
-            <header className="bg-slate-950 shadow">
-                <div className="mx-auto max-w-6xl flex justify-between items-center py-8">
+            <header className="bg-slate-950 shadow border-b border-blue-400">
+                <div className="max-w-6xl mx-auto flex justify-between items-center py-8">
                     <h1 className="text-4xl font-bold text-blue-600"><Link to={"/"}>NodeWave</Link></h1>
                     <nav className="space-x-4">
                         <Link 
