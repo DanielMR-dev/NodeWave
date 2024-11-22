@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
                 element: <Vacantes/>
             },
             {
-                path: 'vacante',
+                path: 'vacante/:id',
                 element: <Vacante/>
             }
         ]
