@@ -75,7 +75,7 @@ const Layout = () => {
                 <Outlet/>
             </main>
             {/* Footer */}
-            <footer className="bg-slate-900 py-5">
+            <footer className="bg-slate-900 py-5 mt-6">
                 <div className="container mx-auto max-w-6xl text-center">
                     <p>&copy; 2024 Portal de Empleo. Todos los derechos reservados.</p>
                 </div>
