@@ -17,7 +17,7 @@ export default function Vacante() {
 
     return (
         <div className="min-h-screen bg-slate-950 text-white flex flex-col">
-            <div className="mx-auto max-w-6xl bg-slate-900 p-8 rounded-2xl shadow">
+            <div className="mx-auto max-w-6xl bg-slate-900 mt-10 p-8 rounded-2xl shadow">
                 <h1 className="text-6xl font-bold text-blue-400">{vacante.title}</h1>
                 <p className="text-3xl text-gray-400 mt-2 upp">Ubicación: {vacante.location}</p>
                 <p className="text-3xl text-gray-400">Salario: {vacante.salary}</p>

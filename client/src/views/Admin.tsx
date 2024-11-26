@@ -30,14 +30,14 @@ const Admin = ({ setIsLoggedIn }: { setIsLoggedIn: (status: boolean) => void }) 
                 {/* Botón de cerrar sesión */}
                 <Link
                     to="/nueva-vacante"
-                    className="bg-blue-500 text-white text-xl px-4 py-2 rounded-lg hover:bg-blue-600 mb-6"
+                    className="bg-blue-500 text-white text-xl px-4 py-2 rounded-lg hover:bg-blue-600 mb-6 transition duration-200 ease-in-out"
                 >
                     Agregar Vacante
                 </Link>
                 {/* Botón de cerrar sesión */}
                 <button
                     onClick={handleLogout}
-                    className="bg-red-500 text-white text-xl px-4 py-2 rounded-lg hover:bg-red-600 mb-6"
+                    className="bg-red-500 text-white text-xl px-4 py-2 rounded-lg hover:bg-red-600 mb-6 transition duration-200 ease-in-out"
                 >
                     Cerrar Sesión
                 </button>
@@ -60,7 +60,7 @@ const Admin = ({ setIsLoggedIn }: { setIsLoggedIn: (status: boolean) => void }) 
                     {vacanciesList.map((vacancy, index) => (
                     <tr 
                         key={vacancy.id} 
-                        className={` ${index % 2 === 0 ? "bg-slate-900 hover:bg-slate-700" : "bg-slate-800 hover:bg-slate-700"}`}
+                        className={` ${index % 2 === 0 ? "bg-slate-900 hover:bg-slate-700 transition duration-200 ease-in-out" : "bg-slate-800 hover:bg-slate-700 transition duration-200 ease-in-out"}`}
                     >
                         <td className="text-xl p-4">{vacancy.title}</td>
                         <td className="text-xl p-4">{vacancy.location}</td>
@@ -68,13 +68,13 @@ const Admin = ({ setIsLoggedIn }: { setIsLoggedIn: (status: boolean) => void }) 
                         <td className="text-xl p-4">
                         <button
                             onClick={() => {}}
-                            className="bg-blue-500 text-white px-4 py-2 w-full rounded-lg hover:bg-blue-600 mb-2"
+                            className="bg-blue-500 text-white px-4 py-2 w-full rounded-lg hover:bg-blue-600 transition duration-200 ease-in-out mb-2"
                         >
                             Editar
                         </button>
                         <button
                             onClick={() => handleDelete(vacancy.id)}
-                            className="bg-red-500 text-white px-4 py-2 w-full rounded-lg hover:bg-red-600"
+                            className="bg-red-500 text-white px-4 py-2 w-full rounded-lg hover:bg-red-600 transition duration-200 ease-in-out"
                         >
                             Eliminar
                         </button>

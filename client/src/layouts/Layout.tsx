@@ -39,23 +39,23 @@ const Layout = () => {
                     <nav className="space-x-4">
                         <Link 
                             to="/" 
-                            className="text-2xl text-white hover:text-blue-600"
+                            className="text-2xl text-white hover:text-blue-600 transition duration-200 ease-in-out"
                         >Inicio</Link>
                         <Link 
                             to="/vacantes" 
-                            className="text-2xl text-white hover:text-blue-600"
+                            className="text-2xl text-white hover:text-blue-600 transition duration-200 ease-in-out"
                         >Vacantes</Link>
                         {isLoggedIn ? (
                             <>
                                 <button
                                     onClick={() => navigate("/admin")} // Redirigir a admin sin cambiar el estado
-                                    className="text-2xl text-white hover:text-blue-600"
+                                    className="text-2xl text-white hover:text-blue-600 transition duration-200 ease-in-out"
                                 >
                                 Volver a Admin
                                 </button>
                                 <button
                                     onClick={handleLogout} // Cerrar sesión
-                                    className="text-2xl text-white hover:text-blue-600"
+                                    className="text-2xl text-white hover:text-blue-600 transition duration-200 ease-in-out"
                                 >
                                 Cerrar Sesión
                                 </button>
