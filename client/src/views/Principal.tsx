@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { vacancies } from "../data/vacantes";
 
 const topVacantes = vacancies.slice(0, 3);
@@ -12,9 +13,12 @@ export default function Main() {
                     <button className="bg-blue-400 text-slate-950 px-6 py-2 rounded-xl shadow hover:bg-blue-500 transition duration-300 ease-in-out">
                         Buscar Vacantes
                     </button>
-                    <button className="bg-blue-500 px-6 py-2 rounded-xl shadow hover:bg-blue-600 transition duration-300 ease-in-out">
+                    <Link 
+                        className="bg-blue-500 px-6 py-2 rounded-xl shadow hover:bg-blue-600 transition duration-300 ease-in-out"
+                        to={'hoja-de-vida'}
+                    >
                         Enviar Hoja de Vida
-                    </button>
+                    </Link>
                 </div>
             </section>
 
@@ -29,13 +33,13 @@ export default function Main() {
                     >
                         <h2 className="text-xl font-bold text-blue-400">{vacante.title}</h2>
                         <p className="text-gray-400 mt-2">Ubicación: {vacante.location}</p>
-                        <p className="text-gray-400">Salario: {vacante.salary}</p>
-                        <button
+                        <p className="text-gray-400 mb-5">Salario: {vacante.salary}</p>
+                        <Link
                             className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-blue-600 transition duration-300 ease-in-out"
-                            onClick={() => window.location.href = `/vacante/${vacante.id}`}
+                            to={`/vacante/${vacante.id}`}
                         >
                             Ver Detalles
-                        </button>
+                        </Link>
                     </div>
                     ))}
                 </div>
