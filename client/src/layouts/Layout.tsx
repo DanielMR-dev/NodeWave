@@ -31,7 +31,7 @@ const Layout = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white">
+        <div className="h-screen bg-slate-950 text-white">
             {/* Header */}
             <header className="bg-slate-950 shadow border-b border-blue-400">
                 <div className="max-w-6xl mx-auto flex justify-between items-center py-8">
@@ -71,12 +71,12 @@ const Layout = () => {
                     </nav>
                 </div>
             </header>     
-            <main className="mx-auto">
+            <main className="bg-slate-950 mx-auto">
                 <Outlet/>
             </main>
             {/* Footer */}
-            <footer className="bg-slate-900 py-5 mt-6">
-                <div className="container mx-auto max-w-6xl text-center">
+            <footer className="bg-slate-900 py-5">
+                <div className="mx-auto max-w-6xl text-center">
                     <p>&copy; 2024 Portal de Empleo. Todos los derechos reservados.</p>
                 </div>
             </footer>

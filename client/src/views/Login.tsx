@@ -34,12 +34,16 @@ const Login = ({ setIsLoggedIn }: { setIsLoggedIn: (status: boolean) => void }) 
     };
 
     return (
-        <div className="h-screen bg-slate-950 flex items-start justify-center p-8">
+        <div className="h-screen bg-slate-950 flex items-start justify-center mt-20">
             <div className="max-w-md w-full bg-slate-900 p-8 rounded shadow">
-                <h1 className="text-3xl font-bold text-blue-400 text-center mb-6">Iniciar Sesión</h1>
+                <h1 className="text-3xl font-bold text-blue-400 text-center mb-6">
+                    Iniciar Sesión
+                </h1>
                 <form className="space-y-6" onSubmit={handleLogin}>
                 <div>
-                    <label htmlFor="email" className="block text-gray-400 mb-2">Correo Electrónico</label>
+                    <label htmlFor="email" className="block text-gray-400 mb-2">
+                        Correo Electrónico
+                    </label>
                     <input
                         id="email"
                         type="email"

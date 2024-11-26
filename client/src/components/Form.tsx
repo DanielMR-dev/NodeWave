@@ -38,7 +38,7 @@ const Form = () => {
     return (
         <>
             {/* Formulario para añadir o editar vacantes */}
-            <div className="mx-auto max-w-6xl bg-slate-900 m-5 p-8 rounded-2xl shadow">
+            <div className="mx-auto max-w-6xl bg-slate-900 m-5 p-8 rounded-2xl shadow mt-8 mb-16">
                 <h2 className="text-2xl font-bold mb-4">{editingVacancy ? "Editar Vacante" : "Nueva Vacante"}</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
