@@ -8,6 +8,7 @@ import Login from "./views/Login";
 import Admin from "./views/Admin";
 import NuevaVacante from "./views/NuevaVacante";
 import HojaDeVida from "./views/HojaDeVida";
+import EditarVacante from "./views/EditarVacante";
 
 const AppRouter = () => {
     // Estado de autenticación guardado en localStorage
@@ -53,7 +54,11 @@ const AppRouter = () => {
                 {
                     path: "hoja-de-vida",
                     element: <HojaDeVida/>
-                }
+                },
+                {
+                    path: "editar-vacante/:id",
+                    element: <EditarVacante />
+                },
             ],
         },
     ]);

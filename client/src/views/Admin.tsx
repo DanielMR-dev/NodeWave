@@ -6,12 +6,18 @@ import { Link, useNavigate } from "react-router-dom";
 const Admin = ({ setIsLoggedIn }: { setIsLoggedIn: (status: boolean) => void }) => {
 
     const navigate = useNavigate(); // Hook para manejar redirecciones
+
     // Estado local para manejar las vacantes
     const [vacanciesList, setVacanciesList] = useState(vacancies);
     
     // Eliminar una vacante
     const handleDelete = (id: number) => {
         setVacanciesList(vacanciesList.filter(v => v.id !== id));
+    };
+
+    // Redirigir a la página de edición
+    const handleEdit = (id: number) => {
+        navigate(`/editar-vacante/${id}`); // Redirigir a la página de edición
     };
 
 
@@ -67,10 +73,10 @@ const Admin = ({ setIsLoggedIn }: { setIsLoggedIn: (status: boolean) => void }) 
                         <td className="text-xl p-4">{vacancy.salary}</td>
                         <td className="text-xl p-4">
                         <button
-                            onClick={() => {}}
-                            className="bg-blue-500 text-white px-4 py-2 w-full rounded-lg hover:bg-blue-600 transition duration-200 ease-in-out mb-2"
+                            onClick={() => handleEdit(vacancy.id)}
+                            className="bg-blue-500 text-white px-4 py-2 w-full rounded-lg hover:bg-blue-600 mb-2"
                         >
-                            Editar
+                        Editar
                         </button>
                         <button
                             onClick={() => handleDelete(vacancy.id)}
