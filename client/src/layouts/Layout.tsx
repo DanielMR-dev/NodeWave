@@ -71,7 +71,7 @@ const Layout = () => {
                     </nav>
                 </div>
             </header>     
-            <main className="bg-slate-950 mx-auto">
+            <main className="h-screen bg-slate-950 mx-auto">
                 <Outlet/>
             </main>
             {/* Footer */}

@@ -27,7 +27,7 @@ export default function Main() {
 
             {/* Vacantes */}
             <section 
-                className="max-w-6xl mx-auto py-10 text-center mb-6" 
+                className="max-w-6xl mx-auto py-10 text-center mb-5" 
                 id="vacantes"
             >
                 <h2 className="text-4xl font-bold mb-10">Vacantes más buscadas</h2>
